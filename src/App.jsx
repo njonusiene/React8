@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import styled from 'styled-components'
-import { NavStyle, AStyle } from "./css/NavStyle"
+import { NavStyle, AStyle, AContainer } from "./css/NavStyle"
 import { GlobalStyle } from "./css/GlobalStyle"
 import { HeaderStyle, DivStyled } from "./css/HeaderStyle"
 import { ButtonStyle } from "./css/ButtonStyle"
@@ -39,13 +39,17 @@ function App() {
     <>
     <GlobalStyle/>
     <NavStyle>
+      <AContainer>
+
+        
+      </AContainer>
       <AStyle href="#">Landing Page</AStyle>
-      <div>
+      <AContainer>
         <AStyle href="#">Home</AStyle>
         <AStyle href="#">About</AStyle>
         <AStyle href="#">Contacts</AStyle>
         <AStyle href="#">Faq</AStyle>
-      </div>
+      </AContainer>
       <ButtonStyle>Get Started</ButtonStyle>
     </NavStyle>
 
