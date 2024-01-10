@@ -6,6 +6,13 @@ export const HeaderStyle = styled.header`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-
+  height: 50vh;
+`
+export const DivStyled = styled.div`
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  text-align: center;
+  color: #103F62;
 `

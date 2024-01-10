@@ -2,32 +2,38 @@ import { motion } from "framer-motion"
 import styled from 'styled-components'
 import { NavStyle, AStyle } from "./css/NavStyle"
 import { GlobalStyle } from "./css/GlobalStyle"
-import { HeaderStyle } from "./css/HeaderStyle"
+import { HeaderStyle, DivStyled } from "./css/HeaderStyle"
 import { ButtonStyle } from "./css/ButtonStyle"
+import { CardsDiv, CardDiv, Icon, CardH1, CardP  } from "./css/DivCardStyled"
 
-import { FaInfinity, FaFingerprint } from "react-icons/fa6";
+import { FaInfinity, FaFingerprint, FaPalette } from "react-icons/fa6";
 import { SiDatabricks } from "react-icons/si";
-import { GiPaintBucket } from "react-icons/gi";
 
-
-
-const DivStyled = styled.div`
-  max-width: 350px;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  text-align: center;
-  color: #103F62;
-`
-
-const DivCardStyled = styled.div`
-  background: white;
-  padding: 15px;
-  border-radius: 4px;
-  max-width: 300px;
-`
 
 function App() {
+
+  const cardsData = [
+    {
+      icon: <SiDatabricks />,
+      title: 'Option 1',
+      description: 'Maiores reiciendis tenetur sunt eaque asperiores repellat molestiae atque natus accusamus inventore quidem ut possimus.',
+    },
+    {
+      icon: <FaPalette />,
+      title: 'Option 2',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, deserunt! Veritatis voluptate ipsam omnis itaque.',
+    },
+    {
+      icon: <FaInfinity />,
+      title: 'Option 3',
+      description: 'Maiores reiciendis tenetur sunt eaque asperiores repellat molestiae atque natus accusamus inventore quidem ut possimus. ',
+    },
+    {
+      icon: <FaFingerprint />,
+      title: 'Option 4',
+      description: 'Lorem ipsum dolor sit amet consectetur adipisicing el it. Sunt, deserunt! Veritatis voluptate ipsam omnis itaque. ',
+    },
+  ]
 
   return (
     <>
@@ -51,32 +57,21 @@ function App() {
       </DivStyled>
     </HeaderStyle>
 
-
-      <div>
-        <DivCardStyled>
-          <SiDatabricks />
-          <h2>Option 1</h2>
-          <p>Malores reicendis tenetur sunt eaque asperiores repallat molestiae atque natus accusamus inventore quidem ut possimus.</p>
-        </DivCardStyled>
-        <DivCardStyled>
-          <GiPaintBucket />
-          <h2>Option 2</h2>
-          <p>Malores reicendis tenetur sunt eaque asperiores repallat molestiae atque natus accusamus inventore quidem ut possimus.</p>
-        </DivCardStyled>
-        <DivCardStyled>
-          <FaInfinity />
-          <h2>Option 3</h2>
-          <p>Malores reicendis tenetur sunt eaque asperiores repallat molestiae atque natus accusamus inventore quidem ut possimus.</p>
-        </DivCardStyled>
-        <DivCardStyled>
-          <FaFingerprint />
-          <h2>Option 4</h2>
-          <p>Malores reicendis tenetur sunt eaque asperiores repallat molestiae atque natus accusamus inventore quidem ut possimus.</p>
-        </DivCardStyled>
-      </div>
-
+    <CardsDiv>
+        {cardsData.map((card, index) => (
+          <CardDiv 
+          key={index}
+          coloronhover={index % 2 === 0 ? 'crimson' : 'green'}
+          >
+            <Icon>{card.icon}</Icon>
+            <CardH1>{card.title}</CardH1>
+            <CardP>{card.description}</CardP>
+          </CardDiv>
+        ))}
+      </CardsDiv>
     </>
   )
 }
 
 export default App
+
